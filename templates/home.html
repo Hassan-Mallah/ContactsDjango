@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Contacts Project!</h1>
+
+<div style="width: 60%; background-color: lightblue; border: 5px solid lightblue">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <textarea name="textarea" style="width: 100%; height: 250px"></textarea><br>
+        <input type="submit" value="Submit" style="width: 100%; height: 50px">
+
+    </form>
+
+    <label>
+        {{ report }}
+    </label>
+</div>
+<br>
+<div style="width: 60%; background-color: lightblue; border: 5px solid lightblue">
+    <form action="" method="GET">
+        <input name="search">
+        <input type="submit" value="Search">
+    </form>
+    <table style="width: 100%">
+        <tr style="border-bottom: 1px solid white">
+            <td>Source ID</td>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Email</td>
+        </tr>
+        {% for record in records %}
+        <tr style="border-bottom: 1px solid white">
+            <td>{{ record.source_id }}</td>
+            <td>{{ record.name }}</td>
+            <td>{{ record.phone }}</td>
+            <td>{{ record.email }}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
