@@ -11,7 +11,6 @@ from time import time
 
 
 def home(request):
-    Contact.objects.all().delete()
     records = Contact.objects.all()
     r = 'Please enter some data :)'
     if request.POST:
